@@ -6,13 +6,13 @@ const feature_api="https://api.themoviedb.org/3/discover/movie?sortby=popularity
 
   const movies=fetch(feature_api)
   .then((res)=>res.json())
-  .then((data)=>console.log(data.results))
+  .then((data)=>console.log(data))
 
   return(
     <div>
-    {movies.map((movie)=>{
+   {/* {movies.map((movie)=>{
       <p>{movie}</p>
-    })}
+    })}   */}
     </div>
   )
 }
