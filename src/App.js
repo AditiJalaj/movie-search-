@@ -1,29 +1,28 @@
 import './App.css';
+import {useState,useEffect} from 'react'
+import Movies from './Movies'
 
 const App=()=>{
+  const [movies,setMovies]=useState(null)
 
 const feature_api="https://api.themoviedb.org/3/discover/movie?sortby=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1"
 
-
- async function fetchMovies(){
-   const response=await fetch(feature_api)
-   //waits until movies is fetched
-
-    const movies=await response.json()
-    console.log('inside the fetchMovies',movies.results)
-    const movies_results=await movies.results
-    
-    return movies_results
-
- }
+useEffect(()=>{
+  fetch(feature_api)
+  .then((res)=>{return res.json()})
+  .then((data)=>{
+    setMovies(data.results)
+  })
+},[])
  
-  const moviesss= fetchMovies()
-  console.log(`outside the fetch function moviesss ${moviesss}  and type of moviesss ${typeof(moviesss)}`)
 
 
   return(
     <div>
-   <p></p>
+   
+   {movies && movies.map((movie)=>{
+     return <Movies />
+   })}
    </div>
   )
 }
