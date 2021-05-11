@@ -11,17 +11,17 @@ useEffect(()=>{
   fetch(feature_api)
   .then((res)=>{return res.json()})
   .then((data)=>{
-    setMovies(data.results)
+    return setMovies(data.results)
   })
 },[])
  
-
+//console.log('movies after return',movies)
 
   return(
     <div>
    
    {movies && movies.map((movie)=>{
-     return <Movies />
+     return <Movies key={movie.id} {...movie}/>
    })}
    </div>
   )
