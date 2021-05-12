@@ -1,22 +1,25 @@
-import {useState } from 'react'
+import {useState,useRef } from 'react'
 
 const image_api= 'https://image.tmdb.org/t/p/w400/'
-const search_api='https://api.themoviedb.org/3/search/movie?api_key=9f27855f3a716c4b2b32bb4cf259ed66&query='
-const Movies = ({title,vote_average,overview,poster_path}) => {
+//const search_api='https://api.themoviedb.org/3/search/movie?api_key=9f27855f3a716c4b2b32bb4cf259ed66&query='
 
-    const [search ,setSearch]=useState('')
-    const handleSearch=(e)=>{
-      e.preventDefault()
-      setSearch(e.target.value)
-      fetch(search_api+e.target.value)
-      .then((res)=>res.json())
-      .then((data)=>console.log(data))
+const Movies = ({id,title,vote_average,overview,poster_path}) => {
+
+    const dummyRef=useRef()
+
+    const handleWatchlist=()=>{
+        alert('added to watchlist')
+        dummyRef.current.disabled=true
+        localStorage.setItem(id,title)
+        console.log(localStorage)
+        //how to render that to screen?
     }
 
     return ( 
          <div> 
          <div className='movie-container'>
          <img className="movie-img" src={image_api+poster_path} alt="poster"/>
+         <button ref={dummyRef} onClick={handleWatchlist}>Add to watchlist</button>
          <p>{title}</p>
          <span>{vote_average}</span>
          <p className="overview">{overview}</p>
