@@ -24,18 +24,16 @@ useEffect(()=>{
 
 const handleSearch=(e)=>{
  setTimeout(() => {
-
+   
    //console.log('this fires after 1.5seconds')
   setSearch(e.target.value)
    search && fetch(search_api+search)
    .then((res)=>res.json())
    .then((data)=>{return setMovies(data.results)})
-   .then((setSearch('')))
-
  }, 1500);
-  
+  setSearch('')
 
- //where to setSearch('')???
+ 
 }
   return(
     <div>
