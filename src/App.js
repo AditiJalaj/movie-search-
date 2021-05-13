@@ -3,12 +3,10 @@ import {useState,useEffect} from 'react'
 import Movies from './Movies'
 
 const App=()=>{
- 
-
 const feature_api="https://api.themoviedb.org/3/discover/movie?sortby=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1"
 const search_api='https://api.themoviedb.org/3/search/movie?api_key=9f27855f3a716c4b2b32bb4cf259ed66&query='
 
-const [movies,setMovies]=useState(null)
+const [movies,setMovies]=useState('')
 const [search,setSearch]=useState('')
 
 useEffect(()=>{
@@ -24,15 +22,15 @@ useEffect(()=>{
 
 const handleSearch=(e)=>{
  setTimeout(() => {
-   
    //console.log('this fires after 1.5seconds')
   setSearch(e.target.value)
-   search && fetch(search_api+search)
-   .then((res)=>res.json())
-   .then((data)=>{return setMovies(data.results)})
+  search && fetch(search_api+search)
+  .then((res)=>res.json())
+  .then((data)=>{return setMovies(data.results)}) 
+   
  }, 1500);
-  setSearch('')
-
+ 
+setSearch('')
  
 }
   return(
