@@ -18,9 +18,11 @@ const WatchList = ({show,hide,children}) => {
         const link =image_api+poster
         //console.log(image_api+poster)
         posterArray.push(link)
-        console.log(` pposter_array  is ${posterArray} `)
+
+
+        //setting the array to store all poster links
         setPosterArray([...posterArray])
-        
+        console.log(` poster_array after set Poster is ${posterArray} `)
     }
 
     console.log('poster array after everythin',posterArray)
@@ -37,9 +39,11 @@ const WatchList = ({show,hide,children}) => {
         <section ><button onClick={hide}>X</button></section>
 
         <section ref={titleRef} >  f  </section>
-        <section  > {posterArray && posterArray.map((p)=>{
-            <img src={p} alt="alt text"></img>
-        })} </section>
+
+        {/* wanna display all the poster links below on modal*/}
+        <section> {posterArray.map((p)=>{
+           return <img src={p}/> }
+        )} </section>
         
         </section>
        
