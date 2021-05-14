@@ -2,7 +2,7 @@ import './App.css';
 import {useState,useEffect} from 'react'
 import Movies from './Movies'
 import WatchList from './WatchList'
-import {BrowserRouter, Switch, Link ,Route } from 'react-router-dom'
+import {BrowserRouter, Switch, Link ,Route, Router } from 'react-router-dom'
 
 
 const App=()=>{
@@ -11,6 +11,14 @@ const search_api='https://api.themoviedb.org/3/search/movie?api_key=9f27855f3a71
 
 const [movies,setMovies]=useState('')
 const [search,setSearch]=useState('')
+const [showModal,setShowModal]=useState(false)
+
+const show=()=>{
+  setShowModal(true)
+}
+const hide=()=>{
+  setShowModal(false)
+}
 
 useEffect(()=>{
   fetch(feature_api)
@@ -33,16 +41,25 @@ const handleSearch=(e)=>{
  }, 1500);
 
  setSearch('')
- 
 }
+
 
 
   return(
     <div>
     <h1>Movie search </h1>
-    <BrowserRouter><Route component={WatchList}><p style={{color:"white"}}>Watch</p></Route></BrowserRouter>
-    <input type="search" onChange={handleSearch} placeholder="search.."></input>
+    
+    {/* <BrowserRouter>
+    <Link to ="/watchlist">WatchList</Link>
+     <Route path="/watchlist" component={WatchList} /> 
+    </BrowserRouter>    */}
 
+    <WatchList show={showModal} hide={hide}> <p>watchlist</p></WatchList>
+    <button onClick={show}>SHOW WATCHLIST</button>
+    
+    <br></br>
+    <br></br>
+    <input type="search" onChange={handleSearch} placeholder="search.."></input>
     {movies && movies.map((movie)=>{
      return <Movies key={movie.id} {...movie}/>
    })}

@@ -13,9 +13,9 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
     const handleWatchlist=()=>{
          alert(`do you wanna add ${titleRef.current.innerHTML} to watchlist?`)
         dummyRef.current.disabled=true
-        
+
          //adding data to firestore is async
-        dbRef.add({title,poster_path,vote_average,overview,createdAt:new Date()
+        dbRef.add({title,poster_path,createdAt:new Date()
         }).then(()=>{
             alert("added")
             
