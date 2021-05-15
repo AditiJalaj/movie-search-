@@ -1,6 +1,6 @@
 import './modal.css'
 import db from './firebase'
-import {useRef, useState} from 'react'
+import {useRef, useState,useEffect} from 'react'
 import Movies from './Movies'
 
 const WatchList = ({show,hide,children}) => {
@@ -9,29 +9,40 @@ const WatchList = ({show,hide,children}) => {
     const dbRef=db.collection('movies')
     const image_api= 'https://image.tmdb.org/t/p/w400/'
     const titleRef=useRef()
-    
+    const imgRef=useRef()
+
     const [posterArray,setPosterArray]=useState([])
     
-    const renderWatchListToModal=(d)=>{
-
+   {/* const renderWatchListToModal=(d)=>{
         const poster=d.data().poster_path
         const link =image_api+poster
         //console.log(image_api+poster)
         posterArray.push(link)
-
-
         //setting the array to store all poster links
-        setPosterArray([...posterArray])
-        console.log(` poster_array after set Poster is ${posterArray} `)
-    }
+        //console.log(` poster_array after set Poster is ${posterArray} `)
+    }   */}
 
-    console.log('poster array after everythin',posterArray)
+    //setPosterArray(posterArray)
+    //console.log('poster array after everythin',posterArray)
 
-    dbRef.get().then((snapshot)=>{
+   {/* dbRef.get().then((snapshot)=>{
         snapshot.docs.forEach((doc)=>{
             renderWatchListToModal(doc)
         })
-    })
+    })   */}
+  
+    useEffect(()=>{
+        dbRef.get().then((snapshot)=>{
+            snapshot.docs.forEach((doc)=>{
+                const poster=doc.data().poster_path
+                const link =image_api+poster
+                posterArray.push(link)
+            })
+        })
+    },[posterArray])
+
+    
+    console.log('poster array aftet useeffect is', posterArray)
 
     return (  <div className={showHideClassName}>
         
@@ -41,15 +52,13 @@ const WatchList = ({show,hide,children}) => {
         <section ref={titleRef} >  f  </section>
 
         {/* wanna display all the poster links below on modal*/}
-        <section> {posterArray.map((p)=>{
-           return <img src={p}/> }
-        )} </section>
+        <section> <img ref={imgRef} ></img></section>
         
         </section>
        
        </div>);
 
-       //retrieve movies from firestore
+       
 }
  
 export default WatchList;
