@@ -32,11 +32,12 @@ const WatchList = ({show,hide,children}) => {
         
         <section className="modal-main">
         <section ><button className="delete" onClick={hide}>X</button></section>
-
+        <p style={{color:"white"}} align="center">YOUR wathlost</p>
+      <div className='watchlist-movies' >
+     
        {posterArray.map(e=><img src={e} />)}
-     <img className="watchlist-img"
+      <img className="watchlist-img"
       ref={imgRef}
-      
       src={
         posterArray &&
         posterArray.map((p) => {
@@ -44,6 +45,7 @@ const WatchList = ({show,hide,children}) => {
         })
       }
     ></img>
+     </div>
     
 
         </section>

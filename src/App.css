@@ -8,8 +8,30 @@ body{
   font-family: 'Lato', sans-serif;
 }
 
+.search-bar{
+  background-color:#483758;
+  color: aliceblue;
+  opacity: 0.9;
+  align-items: center;
+  border-radius: 4px;
+  width:30%;
+  padding:4px 8px;
+  box-shadow: 3px 3px 5px #3e2853;
+  box-sizing: border-box;
+  opacity: 0.8;
+ 
+}
 
+.search-bar:hover{
+  background-color:#756086 ;
+  opacity: 1;
+}
 
+.movie-header{
+  display: flex;
+  justify-content: space-between;
+ flex-wrap: wrap;
+}
 .movie-container{
   display: flex;
   flex-wrap: wrap;
@@ -30,7 +52,7 @@ body{
   display: flex;
   padding:1rem;
   align-items: center;
-  justify-content:space-between;
+  justify-content:space-evenly;
 }
 
 .movie-info h3{

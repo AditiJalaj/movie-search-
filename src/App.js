@@ -47,7 +47,9 @@ const handleSearch=(e)=>{
 
   return(
     <div>
-    <h1>Movie search </h1>
+    <div className='movie-header'>
+    <h1>MovieMania </h1>
+    <input className="search-bar" type="search" onChange={handleSearch} placeholder="search.."></input>
     
     {/* <BrowserRouter>
     <Link to ="/watchlist">WatchList</Link>
@@ -56,14 +58,16 @@ const handleSearch=(e)=>{
 
     <WatchList show={showModal} hide={hide}> <p>watchlist</p></WatchList>
     <button onClick={show}>SHOW WATCHLIST</button>
+    </div>
+    <br></br>
+    <br></br>
     
-    <br></br>
-    <br></br>
-    <input type="search" onChange={handleSearch} placeholder="search.."></input>
-    <div className=" movie-container">
+
+    <h3 style={{color:"white"}}> Trending movies</h3>
+    <div className="movie-container">
     {movies && movies.map((movie)=>{
      return <Movies key={movie.id} {...movie}/>
-   })}
+     })}
    </div>
    </div>
   )
