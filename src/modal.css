@@ -1,29 +1,27 @@
  .modal {
     position: absolute;
     /* text-align: center; */
-    left:50%;
-    top:50%;
-    margin:0 auto;
-    margin-left:0px;
-    margin-top:0px;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin:auto;
     z-index: 1;
+    height: 50%;
+    width: 50%;
     background-color: rgba(255, 0, 0, 0.5);
     opacity: 0.9;
   }  
   
   .modal-main {
-    position:absolute;
+    position:relative;
     background:#413866;;
     color: rgb(207, 191, 247);
     left:50%;
     top:50%;
     z-index: 1;
-    
-   
-    margin-left:-250px;
-    margin-top:-250px;
+    overflow: hidden;
     box-shadow: 3px 5px 7px rgba(112, 9, 133, 0.5);
-    
     border: 3px solid rgb(39, 4, 85);
     transform: translate(-50%,-50%);
   }
@@ -31,13 +29,13 @@
   
 
   .watchlist-movies{
-    width: 20%;
-    margin: 1rem;
-    padding: 2px;
-    height: 40%;
-    display: flex;
-    
-  }
+   margin: 2%;
+   display:flex;
+   flex-wrap: wrap;
+   position: relative;
+   
+
+}
   
   .display-none {
     display: none;
