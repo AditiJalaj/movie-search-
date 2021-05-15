@@ -33,8 +33,11 @@
    display:flex;
    flex-wrap: wrap;
    position: relative;
-   
+}
 
+.watchlist-img{
+    max-width:60%;
+    height:20%;
 }
   
   .display-none {
