@@ -39,7 +39,7 @@ const WatchList = ({show,hide,children}) => {
                 posterArray.push(link)
             })
         })
-    },[posterArray])
+    },[])
 
     
     console.log('poster array aftet useeffect is', posterArray)
@@ -52,7 +52,9 @@ const WatchList = ({show,hide,children}) => {
         <section ref={titleRef} >  f  </section>
 
         {/* wanna display all the poster links below on modal*/}
-        <section> <img ref={imgRef} ></img></section>
+        <section> <img ref={imgRef} src={posterArray && posterArray.map((p)=>{
+            return p
+        })}></img></section>
         
         </section>
        
