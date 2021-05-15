@@ -8,28 +8,12 @@ const WatchList = ({show,hide,children}) => {
 
     const dbRef=db.collection('movies')
     const image_api= 'https://image.tmdb.org/t/p/w400/'
-    const titleRef=useRef()
+    //const titleRef=useRef()
+     
     const imgRef=useRef()
 
     const [posterArray,setPosterArray]=useState([])
     
-   {/* const renderWatchListToModal=(d)=>{
-        const poster=d.data().poster_path
-        const link =image_api+poster
-        //console.log(image_api+poster)
-        posterArray.push(link)
-        //setting the array to store all poster links
-        //console.log(` poster_array after set Poster is ${posterArray} `)
-    }   */}
-
-    //setPosterArray(posterArray)
-    //console.log('poster array after everythin',posterArray)
-
-   {/* dbRef.get().then((snapshot)=>{
-        snapshot.docs.forEach((doc)=>{
-            renderWatchListToModal(doc)
-        })
-    })   */}
   
     useEffect(()=>{
         dbRef.get().then((snapshot)=>{
@@ -39,7 +23,7 @@ const WatchList = ({show,hide,children}) => {
                 posterArray.push(link)
             })
         })
-    },[])
+    },[posterArray])
 
     
     console.log('poster array aftet useeffect is', posterArray)
@@ -49,13 +33,18 @@ const WatchList = ({show,hide,children}) => {
         <section className="modal-main">
         <section ><button onClick={hide}>X</button></section>
 
-        <section ref={titleRef} >  f  </section>
+     {posterArray.map(e=><img src={e} />)}
+     <img
+      ref={imgRef}
+      src={
+        posterArray &&
+        posterArray.map((p) => {
+          return p;
+        })
+      }
+    ></img>
+    
 
-        {/* wanna display all the poster links below on modal*/}
-        <section> <img ref={imgRef} src={posterArray && posterArray.map((p)=>{
-            return p
-        })}></img></section>
-        
         </section>
        
        </div>);
