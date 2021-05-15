@@ -32,7 +32,7 @@ const WatchList = ({show,hide,children}) => {
         
         <section className="modal-main">
         <section ><button className="delete" onClick={hide}>X</button></section>
-        <h3 style={{color:"white"}} align="center">Your Watchlist</h3>
+        <h3 align="center">Your Watchlist</h3>
       <div className='watchlist-movies'>
      
       

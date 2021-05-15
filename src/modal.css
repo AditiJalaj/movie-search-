@@ -1,3 +1,6 @@
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
  .modal {
     position: absolute;
     /* text-align: center; */
@@ -15,8 +18,8 @@
   
   .modal-main {
     position:relative;
-    background:#4CAF50;
-    color: rgb(207, 191, 247);
+    background:#011602;
+    color: rgb(240, 239, 241);
     left:50%;
     top:50%;
     z-index: 1;
@@ -24,10 +27,14 @@
     box-shadow: 3px 5px 7px rgba(255, 255, 255, 0.5);
     border: 3px solid rgb(39, 4, 85);
     transform: translate(-50%,-50%);
-    height: 600px;
+    height: 800px;
     width: 1200px;
   }
   
+  .modal-main h3{
+    font-family: 'Bebas Neue', cursive;
+    font-size: xx-large;
+  }
   
 
   .watchlist-movies{
