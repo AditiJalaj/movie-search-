@@ -38,9 +38,10 @@ const handleSearch=(e)=>{
   search && fetch(search_api+search)
   .then((res)=>res.json())
   .then((data)=>{setMovies(data.results)}) 
+  
  }, 1500);
-
- setSearch('')
+setSearch('')
+ 
 }
 
 

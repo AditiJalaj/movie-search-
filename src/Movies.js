@@ -7,7 +7,6 @@ const image_api= 'https://image.tmdb.org/t/p/w400/'
 const Movies = ({id,title,vote_average,overview,poster_path}) => {
 
     const dummyRef=useRef()
-    const titleRef=useRef()
     const dbRef=db.collection('movies')
 
     const handleWatchlist=()=>{
@@ -29,8 +28,8 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
          
          <div className='movie'>
          <img src={image_api+poster_path} alt={title}/>
-         <button ref={dummyRef} className="w-button" onClick={handleWatchlist}>add</button>
-        <div className="movie-info">
+         <button ref={dummyRef} className="w-button" onClick={handleWatchlist}>WatchList</button>
+         <div className="movie-info">
          <h3 >{title}</h3>
          <span>{vote_average}</span>
          </div>
