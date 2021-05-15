@@ -11,7 +11,7 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
     const dbRef=db.collection('movies')
 
     const handleWatchlist=()=>{
-         alert(`do you wanna add ${titleRef.current.innerHTML} to watchlist?`)
+        
         dummyRef.current.disabled=true
 
          //adding data to firestore is async
@@ -26,15 +26,21 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
     }
 
     return ( 
-         <div> 
-         <div className='movie-container'>
-         <img className="movie-img" src={image_api+poster_path} alt="poster"/>
-         <button ref={dummyRef} onClick={handleWatchlist}>Add to watchlist</button>
-         <p ref={titleRef}>{title}</p>
+         
+         <div className='movie'>
+         <img src={image_api+poster_path} alt={title}/>
+         <button ref={dummyRef} className="w-button" onClick={handleWatchlist}>add</button>
+        <div className="movie-info">
+         <h3 >{title}</h3>
          <span>{vote_average}</span>
-         <p className="overview">{overview}</p>
          </div>
-        </div>);
+         <div className="movie-over">
+          <h2>Overview</h2>
+          <p>{overview}</p>
+             </div>
+         </div>
+         
+        );
 }
  
 export default Movies;

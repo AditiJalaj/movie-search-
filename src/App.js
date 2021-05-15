@@ -60,9 +60,11 @@ const handleSearch=(e)=>{
     <br></br>
     <br></br>
     <input type="search" onChange={handleSearch} placeholder="search.."></input>
+    <div className=" movie-container">
     {movies && movies.map((movie)=>{
      return <Movies key={movie.id} {...movie}/>
    })}
+   </div>
    </div>
   )
 }

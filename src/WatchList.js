@@ -31,11 +31,12 @@ const WatchList = ({show,hide,children}) => {
     return (  <div className={showHideClassName}>
         
         <section className="modal-main">
-        <section ><button onClick={hide}>X</button></section>
+        <section ><button className="delete" onClick={hide}>X</button></section>
 
-     {posterArray.map(e=><img src={e} />)}
-     <img
+       {posterArray.map(e=><img src={e} />)}
+     <img className="watchlist-img"
       ref={imgRef}
+      
       src={
         posterArray &&
         posterArray.map((p) => {
