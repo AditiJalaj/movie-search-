@@ -38,6 +38,11 @@ body{
   justify-content: space-between;
  flex-wrap: wrap;
 }
+
+.movie-header h1{
+  font-family: 'Bebas Neue', cursive;;
+}
+
 .movie-container{
   display: flex;
   flex-wrap: wrap;
@@ -76,6 +81,11 @@ body{
   margin:0;
 }
 
+.movie-info span{
+  background-color: rgb(58, 167, 167);
+  padding: 4px;
+  font-weight: bolder;
+}
 .movie img{
   max-width: 100%;
 }

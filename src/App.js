@@ -31,16 +31,14 @@ useEffect(()=>{
 //console.log('movies after return',movies)
 
 const handleSearch=(e)=>{
- setTimeout(() => {
+ 
    //console.log('this fires after 1.5seconds')
   setSearch(e.target.value)
   search && fetch(search_api+search)
   .then((res)=>res.json())
   .then((data)=>{setMovies(data.results)}) 
+  .then((setSearch('')))
   
- }, 1500);
-setSearch('')
- 
 }
 
 
@@ -48,7 +46,7 @@ setSearch('')
   return(
     <div>
     <div className='movie-header'>
-    <h1>MovieMania </h1>
+    <h1>Movie-Max </h1>
     <input className="search-bar" type="search" onChange={handleSearch} placeholder="search.."></input>
     
     {/* <BrowserRouter>

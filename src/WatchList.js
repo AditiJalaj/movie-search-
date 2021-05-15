@@ -1,7 +1,7 @@
 import './modal.css'
 import db from './firebase'
 import { useState,useEffect} from 'react'
-import Movies from './Movies'
+
 
 const WatchList = ({show,hide,children}) => {
     const showHideClassName=show? "modal display-block" : "modal display-none"

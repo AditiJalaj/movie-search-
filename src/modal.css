@@ -9,19 +9,19 @@
     z-index: 1;
     height: 50%;
     width: 50%;
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     opacity: 0.9;
   }  
   
   .modal-main {
     position:relative;
-    background:#413866;;
+    background:#4CAF50;
     color: rgb(207, 191, 247);
     left:50%;
     top:50%;
     z-index: 1;
     overflow: auto;
-    box-shadow: 3px 5px 7px rgba(112, 9, 133, 0.5);
+    box-shadow: 3px 5px 7px rgba(255, 255, 255, 0.5);
     border: 3px solid rgb(39, 4, 85);
     transform: translate(-50%,-50%);
     height: 600px;

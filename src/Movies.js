@@ -1,4 +1,4 @@
-import {useState,useRef,useEffect } from 'react'
+import {useRef} from 'react'
 import db from './firebase'
 
 const image_api= 'https://image.tmdb.org/t/p/w400/'
@@ -10,9 +10,8 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
     const dbRef=db.collection('movies')
 
     const handleWatchlist=()=>{
-        
         dummyRef.current.disabled=true
-
+        
          //adding data to firestore is async
         dbRef.add({title,poster_path,createdAt:new Date()
         }).then(()=>{
