@@ -2,7 +2,6 @@ import './App.css';
 import {useState,useEffect} from 'react'
 import Movies from './Movies'
 import WatchList from './WatchList'
-import {BrowserRouter, Switch, Link ,Route, Router } from 'react-router-dom'
 
 
 const App=()=>{
@@ -58,7 +57,7 @@ setSearch('')
     </BrowserRouter>    */}
 
     <WatchList show={showModal} hide={hide}> <p>watchlist</p></WatchList>
-    <button onClick={show}>SHOW WATCHLIST</button>
+    <button className="w-button" onClick={show}>SHOW WATCHLIST</button>
     </div>
     <br></br>
     <br></br>
