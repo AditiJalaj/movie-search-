@@ -10,25 +10,26 @@
     right: 0;
     margin:auto;
     z-index: 1;
-    height: 50%;
-    width: 50%;
+   max-height: 90%;
+   max-width: 90%;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0.9;
+    box-shadow: 3px 5px 7px rgba(255, 255, 255, 0.5);
   }  
   
   .modal-main {
     position:relative;
-    background:#011602;
+    background:#000000;
     color: rgb(240, 239, 241);
     left:50%;
     top:50%;
     z-index: 1;
     overflow: auto;
-    box-shadow: 3px 5px 7px rgba(255, 255, 255, 0.5);
-    border: 3px solid rgb(39, 4, 85);
+    
+    border: 3px solid rgb(36, 6, 77);
     transform: translate(-50%,-50%);
-    height: 600px;
-    width: 1200px;
+    max-height: 100%;
+    max-width: 100%;
   }
   
   .modal-main h3{

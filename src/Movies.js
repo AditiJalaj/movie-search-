@@ -11,6 +11,8 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
 
     const handleWatchlist=()=>{
         dummyRef.current.disabled=true
+        dummyRef.current.style.backgroundColor='#151d15'
+        
         
          //adding data to firestore is async
         dbRef.add({title,poster_path,createdAt:new Date()
@@ -27,7 +29,7 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
          
          <div className='movie'>
          <img src={image_api+poster_path} alt={title}/>
-         <button ref={dummyRef} className="w-button" onClick={handleWatchlist}>WatchList</button>
+         <button ref={dummyRef} className="w-button" onClick={handleWatchlist}>Add To WatchList</button>
          <div className="movie-info">
          <h3 >{title}</h3>
          <span>{vote_average}</span>

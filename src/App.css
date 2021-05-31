@@ -69,6 +69,10 @@ body{
   display: inline-block;
   font-size: 16px;
   font-weight: bold;
+  
+}
+.w-button:hover{
+  background-color: #37ff3d;
 }
 .movie-info{
   display: flex;
