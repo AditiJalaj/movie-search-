@@ -1,13 +1,16 @@
 movie-search that makes API call to get searched movies, trending movies from themoviedb.org .Built with React and Firebase (cloud firestore)
 
 Demo -https://agitated-noether-e2a614.netlify.app/
-Features
+
+Features Added- 
 1. add to watchlist
 2. search for movies
 3. overview,rating 
 4. get trending movies
+5. Show watchlist as a Modal
+6. Remove from Watchlist
 
-
+Tech Stack- ReactJS, Firebase (Firestore database), React Hooks, REST API, React Custom Hook for resusability. 
 
 Future Updates->
 Add horizontal scroll to categories
