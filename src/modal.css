@@ -25,7 +25,6 @@
     top:50%;
     z-index: 1;
     overflow: auto;
-    
     border: 3px solid rgb(36, 6, 77);
     transform: translate(-50%,-50%);
     max-height: 100%;
@@ -65,4 +64,15 @@
     color: white;
     font-weight: bolder;
     background-color:#eb0808 ;
+    }
+
+    .delete-movie{
+      position: absolute;
+      padding:5px;
+      margin:0;
+      cursor:pointer;
+      z-index:1;
+      color:white;
+      font-weight: bolder;
+      background-color:#eb0808 ;
     }
