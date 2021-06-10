@@ -6,8 +6,8 @@ import useMovies from './useMovies'
 const WatchList = ({show,hide,children}) => {
     const showHideClassName=show? "modal display-block" : "modal display-none"
 
-    const dbRef=db.collection('movies')
-    const image_api= 'https://image.tmdb.org/t/p/w400/'
+   //  const dbRef=db.collection('movies')
+   //  const image_api= 'https://image.tmdb.org/t/p/w400/'
     
    // const [posterArray,setPosterArray]=useState([])
     
@@ -32,15 +32,14 @@ const WatchList = ({show,hide,children}) => {
          db.collection('movies').doc().delete()
         .then(()=>{
            console.log('deleting e')
+
         })
     }
-    //console.log('poster array aftet useeffect is', posterArray)
+    //console.log('poster array aftet useeffect is', posterArray) -- https://
 
    
-   
     return ( 
-         <div className={showHideClassName}>
-        
+         <div className={showHideClassName}> 
         <section className="modal-main">
         <section ><button className="delete" onClick={hide}>X</button></section>
         <h3 align="center">Your Watchlist</h3>

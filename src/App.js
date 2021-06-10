@@ -11,6 +11,7 @@ const search_api='https://api.themoviedb.org/3/search/movie?api_key=9f27855f3a71
 const [movies,setMovies]=useState('')
 const [search,setSearch]=useState('')
 const [showModal,setShowModal]=useState(false)
+const [trending,setTrending]=useState(true)
 
 const show=()=>{
   setShowModal(true)
@@ -25,29 +26,43 @@ useEffect(()=>{
   .then((data)=>{
     setMovies(data.results)
   })
-
-},[search])
+},[trending])
  
 //console.log('movies after return',movies)
 
 const handleSearch=(e)=>{
- 
-   //console.log('this fires after 1.5seconds')
+  e.preventDefault()
   setSearch(e.target.value)
   search && fetch(search_api+search)
   .then((res)=>res.json())
   .then((data)=>{setMovies(data.results)}) 
-  .then((setSearch('')))
-  
+ 
+  if(e.target.value==='' ||e.target.value===undefined ){
+    setTrending(!trending)
+  }
 }
 
 
+// const handleSubmit=(e)=>{
+//   e.preventDefault()
+//   setSearch(e.target.value)
+//   search && fetch(search_api+search)
+//   .then((res)=>res.json())
+//   .then((data)=>{setMovies(data.results)}) 
+//   .then((setSearch('')))
+// }
 
   return(
     <div>
     <div className='movie-header'>
     <h1>Movie-Max </h1>
-    <input className="search-bar" type="search" onChange={handleSearch} placeholder="search.."></input>
+    
+    <input className="search-bar" type="search"
+     onChange={handleSearch} 
+     placeholder="search..">
+    </input>
+    
+    
     
     {/* <BrowserRouter>
     <Link to ="/watchlist">WatchList</Link>

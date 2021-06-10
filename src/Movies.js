@@ -14,7 +14,7 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
     const dummyRef=useRef()
     const dbRef=db.collection('movies')
 
-    //custom hook get all movies in collection on mount
+    //custom hook get all poster path array in collection on mount 
     const posterArray=useMovies()
     
     const handleWatchlist=()=>{
