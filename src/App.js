@@ -43,15 +43,6 @@ const handleSearch=(e)=>{
 }
 
 
-// const handleSubmit=(e)=>{
-//   e.preventDefault()
-//   setSearch(e.target.value)
-//   search && fetch(search_api+search)
-//   .then((res)=>res.json())
-//   .then((data)=>{setMovies(data.results)}) 
-//   .then((setSearch('')))
-// }
-
   return(
     <div>
     <div className='movie-header'>
@@ -63,13 +54,7 @@ const handleSearch=(e)=>{
     </input>
     
     
-    
-    {/* <BrowserRouter>
-    <Link to ="/watchlist">WatchList</Link>
-     <Route path="/watchlist" component={WatchList} /> 
-    </BrowserRouter>    */}
-
-    <WatchList show={showModal} hide={hide}> <p>watchlist</p></WatchList>
+    <WatchList show={showModal} hide={hide} /> 
     <button className="w-button" onClick={show}>SHOW WATCHLIST</button>
     </div>
     <br></br>

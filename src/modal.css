@@ -2,46 +2,41 @@
  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
  .modal {
-    position: absolute;
-    /* text-align: center; */
-    top:0;
+    position: fixed; /* Stay in place */
+    z-index: 1; 
     left: 0;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    right:0;
     margin:auto;
-    z-index: 1;
-   max-height: 90%;
-   max-width: 90%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0.9;
-    box-shadow: 3px 5px 7px rgba(255, 255, 255, 0.5);
+    bottom: 0;
+    max-width: 100%; 
+    max-height: 100%; 
+    overflow:auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
   }  
   
-  .modal-main {
-    position:relative;
-    background:#000000;
-    color: rgb(240, 239, 241);
-    left:50%;
-    top:50%;
-    z-index: 1;
-    overflow: auto;
-    border: 3px solid rgb(36, 6, 77);
-    transform: translate(-50%,-50%);
-    max-height: 100%;
-    max-width: 100%;
+  .no-modal{
+    display: none;
   }
-  
+
   .modal-main h3{
     font-family: 'Bebas Neue', cursive;
     font-size: xx-large;
   }
+  .modal-main {
+    background-color: #201729;
+    margin: 10vh auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    max-width: 100%; /* Could be more or less, depending on screen size */
+  }
   
 
-  .watchlist-movies{
-   margin: 4%;
+.watchlist-movies{
+   margin: 4% 10%;
    display:flex;
    flex-wrap: wrap;
-   position: relative;
+   justify-content:flex-start;
 }
 
 .watchlist-img{
@@ -56,10 +51,11 @@
 
 
   .delete{
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     cursor: pointer;
+    font-size: xx-large;
     z-index: 1;
     color: white;
     font-weight: bolder;
