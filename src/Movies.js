@@ -5,8 +5,6 @@ import useMovies from './useMovies'
 const image_api= 'https://image.tmdb.org/t/p/w400/'
 //const search_api='https://api.themoviedb.org/3/search/movie?api_key=9f27855f3a716c4b2b32bb4cf259ed66&query='
 
-
-
 const Movies = ({id,title,vote_average,overview,poster_path}) => {
 
     const [inwatchlist, setinWatchlist]=useState(false)
