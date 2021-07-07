@@ -8,25 +8,31 @@ const WatchList = ({ show, hide }) => {
   const showHideClassName = show ? "modal" : "no-modal";
 
   //to rerender watchlist component on delete
-  const [del,setDel]=useState(false)
+  const [del, setDel] = useState(false);
+
 
   //on watch list comp mount, get watchlisted movies poster links
   const posterArray = useMovies();
 
-  //incomplete
-  const deleteFromWatchList = (pid) => {
-    
 
-    //why isnt it deleting
-    db.collection("movies")
-      .doc(pid)
-      .delete()
-      .then(() => {
-        setDel(!del)
-        console.log('delete',pid)
+  const deleteFromWatchList = (pid) => {
+
+
+    //delete a document once you have a DocumentReference to it. 
+    //To get that you must first execute the query, 
+    //then loop over the QuerySnapshot and 
+    //finally delete each DocumentSnapshot based on its ref;
+    
+    var posterpath_query = db
+      .collection("movies")
+      .where("poster_path", "==", pid);
+      posterpath_query.get().then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        doc.ref.delete();
       });
+    });
   };
-  //console.log('poster array aftet useeffect is', posterArray) -- https://
+
 
   return (
     <div className={showHideClassName}>
@@ -40,11 +46,14 @@ const WatchList = ({ show, hide }) => {
 
         <div className="watchlist-movies">
           {posterArray.map((i) => {
-            const poster_id=i.split('w400/')[1]
+            const poster_id = i.split("w400/")[1];
             return (
               <div key={i}>
-                <button onClick={()=>deleteFromWatchList(poster_id)} className="delete-movie">
-                  X  {}
+                <button
+                  onClick={() => deleteFromWatchList(poster_id)}
+                  className="delete-movie"
+                >
+                  X {}
                 </button>
                 <img className="watchlist-img" src={i} />
               </div>
