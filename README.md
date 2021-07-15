@@ -2,6 +2,8 @@ movie-search that makes API call to get searched movies, trending movies from th
 
 Demo -https://agitated-noether-e2a614.netlify.app/
 
+API docs referred - https://www.themoviedb.org/documentation/api
+
 Features Added- 
 1. add to watchlist
 2. search for movies
@@ -14,15 +16,9 @@ Tech Stack- ReactJS, Firebase (Firestore database), React Hooks, REST API, React
 
 Future Updates->
 Add horizontal scroll to categories
-
 change the overview to a modal or component with youtube trailer link and cast
-
 add youtube link for each movie in overview
-
 show category wise movies on home
-
 display genre for each movie in overview
-
 instead of the WatchList modal, use the Movies component to display bookmarked movies
-
 show movies genre-wise
