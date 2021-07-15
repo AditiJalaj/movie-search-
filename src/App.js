@@ -1,71 +1,25 @@
 import './App.css';
-import {useState,useEffect} from 'react'
-import Movies from './Movies'
-import WatchList from './WatchList'
+import { BrowserRouter as Router,Switch,Route } from 'react-router-dom'
+import Home from './Home';
+import Category from './Category';
+import NavBar from './NavBar';
+import Info from './Info';
+import Footer from './Footer';
+
 const App=()=>{
-const feature_api="https://api.themoviedb.org/3/discover/movie?sortby=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1"
-const search_api='https://api.themoviedb.org/3/search/movie?api_key=9f27855f3a716c4b2b32bb4cf259ed66&query='
-
-const [movies,setMovies]=useState('')
-const [search,setSearch]=useState('')
-const [showModal,setShowModal]=useState(false)
-const [trending,setTrending]=useState(true)
-
-const show=()=>{
-  setShowModal(true)
-}
-const hide=()=>{
-  setShowModal(false)
-}
-
-useEffect(()=>{
-  fetch(feature_api)
-  .then((res)=>{return res.json()})
-  .then((data)=>{
-    setMovies(data.results)
-  })
-},[trending])
- 
-//console.log('movies after return',movies)
-
-const handleSearch=(e)=>{
-  e.preventDefault()
-  setSearch(e.target.value)
-  search && fetch(search_api+search)
-  .then((res)=>res.json())
-  .then((data)=>{setMovies(data.results)}) 
- 
-  if(e.target.value==='' ||e.target.value===undefined ){
-    setTrending(!trending)
-  }
-}
-
-
-  return(
-    <div>
-    <div className='movie-header'>
-    <h1>Movie-Max </h1>
-    
-    <input className="search-bar" type="search"
-     onChange={handleSearch} 
-     placeholder="search..">
-    </input>
-    
-    
-    <WatchList show={showModal} hide={hide} /> 
-    <button className="w-button" onClick={show}>SHOW WATCHLIST</button>
-    </div>
-    <br></br>
-    <br></br>
-    
-
-    <h3 style={{color:"white"}}> Trending movies</h3>
-    <div className="movie-container">
-    {movies && movies.map((movie)=>{
-     return <Movies key={movie.id} {...movie}/>
-     })}
-   </div>
-   </div>
-  )
+return(
+  <>
+  <Router>
+  <NavBar/>
+  <Switch>
+  <Route path='/' exact component={Home}></Route>
+  <Route path='/category' exact component={Category}></Route>
+  <Route path='/item/:id' exact component={Info}></Route>
+  <Route path='/genre/:id' exact component={Home}></Route>
+  </Switch>
+  </Router>
+  </>
+)
+  
 }
 export default App;

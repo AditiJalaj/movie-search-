@@ -7,10 +7,6 @@ const WatchList = ({ show, hide }) => {
   //to switch the modal class
   const showHideClassName = show ? "modal" : "no-modal";
 
-  //to rerender watchlist component on delete
-  const [del, setDel] = useState(false);
-
-
   //on watch list comp mount, get watchlisted movies poster links
   const posterArray = useMovies();
 
@@ -22,7 +18,7 @@ const WatchList = ({ show, hide }) => {
     //To get that you must first execute the query, 
     //then loop over the QuerySnapshot and 
     //finally delete each DocumentSnapshot based on its ref;
-    
+
     var posterpath_query = db
       .collection("movies")
       .where("poster_path", "==", pid);

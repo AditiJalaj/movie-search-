@@ -1,14 +1,14 @@
 import {useRef,useState} from 'react'
 import db from './firebase'
 import useMovies from './useMovies'
+import {Link } from 'react-router-dom'
 
 const image_api= 'https://image.tmdb.org/t/p/w400/'
-//const search_api='https://api.themoviedb.org/3/search/movie?api_key=9f27855f3a716c4b2b32bb4cf259ed66&query='
 
 const Movies = ({id,title,vote_average,overview,poster_path}) => {
 
     const [inwatchlist, setinWatchlist]=useState(false)
-
+  
     const dummyRef=useRef()
     const dbRef=db.collection('movies')
 
@@ -19,7 +19,6 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
 
         dummyRef.current.disabled=true
         dummyRef.current.style.backgroundColor='#151d15'
-        
         
         //console.log('inside watchlist ', poster_path)  
        
@@ -46,10 +45,14 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
          <div className='movie'>
          <img src={image_api+poster_path} alt={title}/>
          <button ref={dummyRef} className="w-button" onClick={handleWatchlist}>Add To WatchList</button>
+        
          <div className="movie-info">
          <h3 >{title}</h3>
          <span>{vote_average}</span>
          </div>
+
+         <Link className="knowmore" to={`/item/${id}`}>Know More</Link>
+        
          <div className="movie-over">
           <h2>Overview</h2>
           <p>{overview}</p>
