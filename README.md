@@ -1,6 +1,6 @@
 Movie-Max 
 
-https://www.loom.com/share/927ffb11a3c94f33966314fbc8a25886
+Demo Video -> https://www.loom.com/share/927ffb11a3c94f33966314fbc8a25886
 
 Demo -https://agitated-noether-e2a614.netlify.app/
 
@@ -20,7 +20,6 @@ Features Added-
 Tech Stack- ReactJS, Firebase (Firestore database), React Hooks, REST API, Font Awesome, React Custom Hook for resusability. 
 
 Future Updates->
-
 1. include cast in info component
 2. show similar movies in info component based on genre
 3. debounce logic in search
