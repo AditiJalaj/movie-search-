@@ -1,4 +1,6 @@
-movie-search that makes API call to get searched movies, trending movies from themoviedb.org .Built with React and Firebase (cloud firestore)
+Movie-Max 
+
+https://www.loom.com/share/927ffb11a3c94f33966314fbc8a25886
 
 Demo -https://agitated-noether-e2a614.netlify.app/
 
