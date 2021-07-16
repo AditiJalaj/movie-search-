@@ -1,14 +1,14 @@
 import {useRef,useState} from 'react'
-import db from './firebase'
-import useMovies from './useMovies'
+import db from '../firebase'
+import useMovies from '../custom-hook/useMovies'
 import {Link } from 'react-router-dom'
+import sample from '../images/sample.png'
 
-const image_api= 'https://image.tmdb.org/t/p/w400/'
 
 const Movies = ({id,title,vote_average,overview,poster_path}) => {
 
     const [inwatchlist, setinWatchlist]=useState(false)
-  
+    const image_api= 'https://image.tmdb.org/t/p/w400/'
     const dummyRef=useRef()
     const dbRef=db.collection('movies')
 
@@ -43,12 +43,12 @@ const Movies = ({id,title,vote_average,overview,poster_path}) => {
     return ( 
          
          <div className='movie'>
-         <img src={image_api+poster_path} alt={title}/>
+         <img src={poster_path? image_api+poster_path:sample } alt={title}/>
          <button ref={dummyRef} className="w-button" onClick={handleWatchlist}>Add To WatchList</button>
         
          <div className="movie-info">
          <h3 >{title}</h3>
-         <span>{vote_average}</span>
+         <span style={ vote_average>=7 ? {backgroundColor:'rgb(58, 167, 167)'}:{backgroundColor:'red'}}>{vote_average}/10</span>
          </div>
 
          <Link className="knowmore" to={`/item/${id}`}>Know More</Link>

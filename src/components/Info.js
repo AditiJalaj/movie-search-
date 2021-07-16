@@ -1,8 +1,8 @@
-import { useEffect, useState,useRef } from 'react';
+import { useEffect, useState } from 'react';
 import {useParams} from 'react-router-dom'
-import sample from './download.jpg'
-import loading from './loading.png'
-import imdb from './imdb.png'
+import sample from '../images/sample.png'
+import loading from '../images/loading.png'
+import imdb from '../images/imdb.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
@@ -23,12 +23,12 @@ const Info = () => {
                 setData(data)
                 //object
             })
-    },[])
+    },[details_api])
  
     return ( <>
     <div>
     <section>
-    <img className="backdrop" 
+    <img className="backdrop"  alt="backdrop"
     src={data.backdrop_path ? image_api+data.backdrop_path: sample}
     />
     <h1 className="title">{data.original_title}</h1>
@@ -49,27 +49,40 @@ const Info = () => {
     <h1>{data.tagline}</h1>
     <span className="overview">{data.overview}</span>
 
-    <header>
-    <h1
+    {
+        data.vote_average && 
+        <header>
+     <h1
     style={{display:"inline-block",borderRadius:"50px"}}>Rating</h1>
     <span className='tab'>{data.vote_average}/10</span>
     </header>
 
-    <h1 style={{display:"inline-block"}}>Released</h1>
-    <span className='tab'>{data.release_date}</span>
+    }
+    
+   
+    { data.release_date &&  
+        <> <h1 style={{display:"inline-block"}}>Released</h1>
+    <span className='tab'>{data.release_date}</span>  </>}
+   
     </div>
 
     {data.homepage && 
     <header>
     <h1 style={{display:"inline-block"}}>Watch Trailer</h1>
-    <span className='watch'><a href={data.homepage} target="_blank"><FontAwesomeIcon icon={faPlay}/></a></span>
+    <span className='watch'><a href={data.homepage} 
+    rel="noreferrer"
+    target="_blank"><FontAwesomeIcon icon={faPlay}/></a></span>
     </header>
     }
 
-    <header>
+    {
+        data.imdb_id && 
+        <header>
     <h1 style={{display:"inline-block"}}>More on...</h1>
-    <span><a href={imdb_link+data.imdb_id} target="_blank"><img className='imdb' src={imdb} alt="imdb"/></a></span>
+    <span><a href={imdb_link+data.imdb_id} rel="noreferrer" target="_blank"><img className='imdb' src={imdb} alt="imdb"/></a></span>
     </header>
+    }
+    
     </section>
 
     {/*similart movies */}

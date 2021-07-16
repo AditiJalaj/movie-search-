@@ -1,7 +1,6 @@
-import "./modal.css";
-import db from "./firebase";
-import { useState, useEffect } from "react";
-import useMovies from "./useMovies";
+import "../modal.css";
+import db from "../firebase";
+import useMovies from "../custom-hook/useMovies";
 
 const WatchList = ({ show, hide }) => {
   //to switch the modal class

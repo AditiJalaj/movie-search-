@@ -1,5 +1,5 @@
 
-import db from './firebase'
+import db from '../firebase'
 import { useState,useEffect} from 'react'
 
 const useMovies = () => {
@@ -20,7 +20,7 @@ const useMovies = () => {
         })
     },[posterArray])
 
-    return ( posterArray );
+    return posterArray ;
 }
  
 export default useMovies;

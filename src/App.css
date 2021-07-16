@@ -100,12 +100,14 @@ body{
 }
 
 .movie-info span{
-  background-color: rgb(58, 167, 167);
-  padding: 4px;
+  padding: 4%;
   font-weight: bolder;
+  border-radius: 50%;
+  border:1px solid black;
 }
 .movie img{
   max-width: 100%;
+  max-height: 100%;
 }
 
 .movie-over{
@@ -281,6 +283,7 @@ iframe{
 .eachcategory{
   background-color:#3e2853 ;
   color:white;
+  font-family:'Bebas Neue', cursive;  
   border-right: 1px solid white;
   border-bottom: 1.5px solid white;
   font-size: xx-large;
@@ -299,6 +302,8 @@ iframe{
 
 .trending{
   margin-left: 10vw;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-shadow: -2px 0 rgb(12, 5, 12), 0 3px rgb(3, 3, 3), 1px 0 black, 0 -1px black;
 }
 
 /* .linkedin{

@@ -1,12 +1,15 @@
 const Footer = () => {
     return (
         <footer>
-        <h1>Made with 💜 by 
+        <div>
+        <p>Made with 💜 by 
         <a 
         target="_blank"
+        rel="noreferrer"
         href='https://www.linkedin.com/in/aditi-jalaj-5b921612a/'> 
         <strong className='linkedin'>Aditi Jalaj</strong>
-        </a></h1>
+        </a></p>
+        </div>
         </footer>
         );
 }
